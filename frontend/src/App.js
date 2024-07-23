@@ -1,12 +1,19 @@
-import "./App.css";
+// src/App.js
+
+import React from "react";
+import DocumentUpload from "./pages/upload";
+import DocumentQuery from "./pages/query";
 import Chat from "./pages/chat";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <main>
         <Chat />
-      </header>
+        <DocumentUpload />
+        <DocumentQuery />
+      </main>
     </div>
   );
 }

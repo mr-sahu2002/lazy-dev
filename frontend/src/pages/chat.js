@@ -16,38 +16,6 @@ const Chat = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const [file, setFile] = useState(null);
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const handleFileUpload = async (e) => {
-    e.preventDefault();
-    if (!file) {
-      alert("Please select a file first!");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:5000/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      console.log(response.data);
-    } catch (error) {
-      console.error("There was an error uploading the file!", error);
-    }
-  };
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -146,45 +114,6 @@ const Chat = () => {
             <label htmlFor="textbook">Textbook</label>
             <p>{book_link}</p>
           </div>
-
-          {/* <div className="form-section">
-            <label htmlFor="road-map">Road Map</label>
-            <p></p>
-          </div> */}
-        </div>
-
-        {/* <div className="form-section">
-          <label htmlFor="pdf-upload">Upload PDF</label>
-          <input
-            type="file"
-            id="pdf-upload"
-            className="file-input"
-            accept="application/pdf"
-          />
-        </div> */}
-        <form onSubmit={handleFileUpload}>
-          <input
-            type="file"
-            onChange={handleFileChange}
-            accept="application/pdf"
-          />
-          <button type="submit">Upload</button>
-        </form>
-
-        <div className="form-section">
-          <label htmlFor="ask-question">Ask Question</label>
-          <textarea id="ask-question"></textarea>
-          <button className="button" id="ask-question-button">
-            Submit
-          </button>
-        </div>
-
-        <div className="form-section">
-          <label htmlFor="mock-test">Mock Test</label>
-          <textarea id="mock-test" disabled></textarea>
-          <button className="button" id="mock-test-button" disabled>
-            Submit
-          </button>
         </div>
       </div>
     </div>
