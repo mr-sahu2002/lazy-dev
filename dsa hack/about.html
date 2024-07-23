@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .header .nav a:hover {
+            color: #ddd;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .about-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .about-box {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            color: white;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+        }
+        .about-box.what {
+            background-color: #ff6347;
+        }
+        .about-box.why {
+            background-color: #4682b4;
+        }
+        .about-box.how {
+            background-color: #32cd32;
+        }
+        .about-box h2 {
+            margin: 0 0 10px;
+        }
+        .about-box p {
+            margin: 0;
+        }
+        .about-box:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">LOGO</div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="chat.html">Chat</a>
+            <a href="features.html">Features</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>About</h1>
+        <div class="about-container">
+            <div class="about-box what">
+                <h2>WHAT?</h2>
+                <p>Description</p>
+            </div>
+            <div class="about-box why">
+                <h2>WHY?</h2>
+                <p>Description</p>
+            </div>
+            <div class="about-box how">
+                <h2>HOW?</h2>
+                <p>Description</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

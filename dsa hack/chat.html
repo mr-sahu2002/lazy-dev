@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Dark black background */
+            color: #fff; /* White text */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .header .nav a:hover {
+            color: #ddd;
+        }
+        .content {
+            padding: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section input, .form-section textarea, .form-section .button, .form-section .file-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #333; /* Dark background for inputs */
+            color: #fff; /* White text for inputs */
+        }
+        .form-section label {
+            font-weight: bold;
+        }
+        .form-section textarea {
+            resize: vertical;
+        }
+        .feature-box {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #444; /* Dark background for feature boxes */
+            margin-bottom: 20px;
+        }
+        .feature-box.prerequisite {
+            background-color: #ff6347;
+        }
+        .feature-box.project-to-do {
+            background-color: #4682b4;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555; /* Dark button background */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .file-input {
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333; /* Dark background for file input */
+            color: #fff; /* White text for file input */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">LOGO</div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="features.html">Features</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="form-section">
+            <label for="learning-topic">What You Want to Learn?</label>
+            <input type="text" id="learning-topic" placeholder="Ex: Deep Learning">
+        </div>
+        <div class="form-section">
+            <label for="background-knowledge">Background Knowledge</label>
+            <input type="text" id="background-knowledge" placeholder="Ex: Python">
+            <button class="button" id="background-knowledge-button">Submit</button>
+        </div>
+        <div class="form-section feature-box prerequisite">
+            <label for="prerequisite">Prerequisite</label>
+            <p id="prerequisite" disabled></p>
+        </div>
+        <div class="form-section feature-box project-to-do">
+            <label for="project-to-do">Project to Do</label>
+            <p id="project-to-do" disabled></p>
+        </div>
+        <div class="form-section">
+            <label for="youtube-links">YouTube Links</label>
+            <textarea id="youtube-links" disabled></textarea>
+        </div>
+        <div class="form-section">
+            <label for="textbook">Textbook</label>
+            <textarea id="textbook" disabled></textarea>
+        </div>
+        <div class="form-section">
+            <label for="road-map">Road Map</label>
+            <textarea id="road-map" disabled></textarea>
+        </div>
+        <div class="form-section">
+            <label for="pdf-references">PDF References</label>
+            <textarea id="pdf-references" disabled></textarea>
+        </div>
+        <div class="form-section">
+            <label for="pdf-upload">Upload PDF</label>
+            <input type="file" id="pdf-upload" class="file-input" accept="application/pdf">
+        </div>
+        <div class="form-section">
+            <label for="ask-question">Ask Question</label>
+            <textarea id="ask-question"></textarea>
+            <button class="button" id="ask-question-button">Submit</button>
+        </div>
+        <div class="form-section">
+            <label for="mock-test">Mock Test</label>
+            <textarea id="mock-test" disabled></textarea>
+            <button class="button" id="mock-test-button" disabled>Submit</button>
+        </div>
+    </div>
+</body>
+</html>
