@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import "../style/query.css";
 
 const DocumentQuery = () => {
   const [query, setQuery] = useState("");

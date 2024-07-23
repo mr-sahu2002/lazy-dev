@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import "../style/upload.css";
 
 const DocumentUpload = () => {
   const [selectedFiles, setSelectedFiles] = useState(null);

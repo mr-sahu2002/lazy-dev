@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../style/chat.css"; // Make sure to create this CSS file
+// import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const Chat = () => {
   const [question, setQuestion] = useState("");
@@ -53,7 +54,7 @@ const Chat = () => {
   return (
     <div className="app">
       <div className="header">
-        <div className="logo">LOGO</div>
+        <div className="logo">Vidya.ai</div>
         <div className="nav">
           <a href="index.html">Home</a>
           <a href="about.html">About Us</a>
@@ -97,7 +98,7 @@ const Chat = () => {
         <div className="output">
           <div className="form-section feature-box prerequisite">
             <label htmlFor="prerequisite">Prerequisite</label>
-            {pre}
+            <p>{pre}</p>
           </div>
 
           <div className="form-section feature-box project-to-do">
@@ -107,7 +108,7 @@ const Chat = () => {
 
           <div className="form-section feature-box prerequisite">
             <label htmlFor="youtube-links">YouTube Links</label>
-            {youtube_link}
+            <p> {youtube_link}</p>
           </div>
 
           <div className="form-section feature-box project-to-do">
