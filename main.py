@@ -51,6 +51,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def load_documents() -> List[Document]:
+    """Loads the pdf files within the DOCUMENT_DIR constant."""
     try:
         logger.info("[+] Loading documents...")
         documents = DirectoryLoader(
@@ -62,6 +63,7 @@ def load_documents() -> List[Document]:
         logger.error(f"[-] Error loading the document: {e}")
 
 def chunk_document(documents: List[Document]) -> List[Document]:
+    """Splits the input documents into maximum of CHUNK_SIZE chunks."""
     try:
         tokenizer = AutoTokenizer.from_pretrained(
             "jinaai/" + EMBED_MODEL_NAME, cache_dir=environ.get("HF_HOME")
@@ -75,7 +77,7 @@ def chunk_document(documents: List[Document]) -> List[Document]:
         logger.info("[+] Splitting documents...")
 
         chunks = []
-        batch_size = 5
+        batch_size = 5  # Adjust batch size as needed
         for i in range(0, len(documents), batch_size):
             batch_docs = documents[i:i+batch_size]
             batch_chunks = text_splitter.split_documents(batch_docs)
@@ -87,9 +89,11 @@ def chunk_document(documents: List[Document]) -> List[Document]:
     except Exception as e:
         logger.error(f"[-] Error splitting the document: {e}")
 
+
 def create_and_store_embeddings(
     embedding_model: JinaEmbeddings, chunks: List[Document]
 ) -> Chroma:
+    """Calculates the embeddings and stores them in a chroma vectorstore."""
     try:
         vectorstore = Chroma.from_documents(
             chunks,
@@ -102,9 +106,12 @@ def create_and_store_embeddings(
     except Exception as e:
         logger.error(f"[-] Error creating vectorstore: {e}")
 
+
 def get_vectorstore_retriever(embedding_model: JinaEmbeddings) -> VectorStoreRetriever:
+    """Returns the vectorstore."""
     db = chromadb.PersistentClient(VECTOR_STORE_DIR)
     try:
+        # Check for the existence of the vectorstore specified by the COLLECTION_NAME
         db.get_collection(COLLECTION_NAME)
         retriever = Chroma(
             embedding_function=embedding_model,
@@ -120,6 +127,7 @@ def get_vectorstore_retriever(embedding_model: JinaEmbeddings) -> VectorStoreRet
         )
     return retriever
 
+
 def create_rag_chain(embedding_model: JinaEmbeddings, llm: ChatGroq) -> Runnable:
     template = """Answer the question based only on the following context.
     Think step by step before providing a detailed answer. I will give you
@@ -131,14 +139,16 @@ def create_rag_chain(embedding_model: JinaEmbeddings, llm: ChatGroq) -> Runnable
     Question: {input}
     """
     prompt = ChatPromptTemplate.from_template(template)
-
     document_chain = create_stuff_documents_chain(llm=llm, prompt=prompt)
-
     retriever = get_vectorstore_retriever(embedding_model)
-
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
-
     return retrieval_chain
+
+
+
+def str2arr(string):
+    array = string.strip("[]").replace('"', "").split(",")
+    return array
 
 @app.route('/response', methods=['POST'])
 def get_response():
@@ -157,6 +167,9 @@ def get_response():
     pre = get_answer(question, context, 1)
     project = get_answer(question, context, 2)
     title = get_answer(question, context, 3)
+    
+    lst_pre=str2arr(pre)
+    lst_project=str2arr(project)
 
     # Get YouTube links and book links based on the title
     youtube = youtube_link(title)
@@ -165,8 +178,8 @@ def get_response():
     # Create a JSON response with all the values
     response = {
         "answer": answer,
-        "prerequisite": pre,
-        "project": project,
+        "prerequisite": lst_pre,
+        "project": lst_project,
         "youtube_links": youtube,
         "book_links": book
     }

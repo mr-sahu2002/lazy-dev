@@ -17,9 +17,9 @@ def get_answer(question,context,flag):
     if flag == 0:
         content=f"I have given you student background knowledge {context} use that background knowledge to answer the student question{question}"+"also provide the example"+"dont give introduction or greet user be specific and point-to-point"+"within 150 words"
     elif flag == 1:
-        content=f"give me the list of prerequisites for the following question {question} and the output should be array of prerequisites"+'provide only array not other text'+"give me the 5 most prerequisites"+"strictly give only array"
+        content=f"give me the list of prerequisites for the following question {question} and the output should be array of prerequisites"+'provide only array not other text'+"give me the 5 top prerequisites"+"strictly give only array"+"ex:['hello','hi']"
     elif flag == 2:
-        content=f"list the project which a student can do to understand that concept {question} and the difficulty of the project should be accroding to his/her previous knowledge{context}"+"give me the list of 5 projects"+"directly give me the list without any prior introduction"+"provide only array not other text"+"strictly give only array"
+        content=f"list the project which a student can do to understand that concept {question} and the difficulty of the project should be accroding to his/her previous knowledge{context}"+"give me the list of 5 projects"+"directly give me the list without any prior introduction"+"provide only array not other text"+"strictly give only array"+"ex:['hello','hi']"
     elif flag == 3:
         content=f"only give the topic name, not prepositions from the following {question}"
 
@@ -45,10 +45,12 @@ def get_answer(question,context,flag):
 # project=get_answer(question,context,2)
 # title=get_answer(question, context,3)
 
-# print(answer)
-# print('-----------------------------------------------------------------------------')
+# # print(answer)
+# # print('-----------------------------------------------------------------------------')
 # print(pre)
+# print(type(pre))
 # print('-----------------------------------------------------------------------------')
 # print(project)
-# print('-----------------------------------------------------------------------------')
-# print(title)
+# print(type(project))
+# # print('-----------------------------------------------------------------------------')
+# # print(title)

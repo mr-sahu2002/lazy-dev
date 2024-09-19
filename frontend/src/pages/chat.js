@@ -98,22 +98,56 @@ const Chat = () => {
         <div className="output">
           <div className="form-section feature-box prerequisite">
             <label htmlFor="prerequisite">Prerequisite</label>
-            <p>{pre}</p>
+            <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+              {pre.map((name, index) => (
+                <li key={index}>{name}</li>
+              ))}
+            </ul>
           </div>
 
           <div className="form-section feature-box project-to-do">
             <label htmlFor="project-to-do">Project to Do</label>
-            <p>{project}</p>
+            <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+              {project.map((name, index) => (
+                <li key={index}>{name}</li>
+              ))}
+            </ul>
           </div>
 
           <div className="form-section feature-box prerequisite">
             <label htmlFor="youtube-links">YouTube Links</label>
-            <p> {youtube_link}</p>
+            <ul
+              style={{
+                listStyleType: "none",
+                color: "white",
+              }}
+            >
+              {youtube_link.map((name, index) => (
+                <li key={index}>
+                  <a href={name} style={{ color: "white" }}>
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="form-section feature-box project-to-do">
             <label htmlFor="textbook">Textbook</label>
-            <p>{book_link}</p>
+            <ul
+              style={{
+                listStyleType: "none",
+                color: "white",
+              }}
+            >
+              {book_link.map((name, index) => (
+                <li key={index}>
+                  <a href={name} style={{ color: "white" }}>
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
