@@ -1,6 +1,6 @@
 # Local storage
-documents/
-vectorstore/
+# documents/
+# vectorstore/
 hf_model/
 
 #python env
