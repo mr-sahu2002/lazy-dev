@@ -44,7 +44,10 @@ const DocumentUpload = () => {
 
   return (
     <div>
+      <br></br>
+      <br></br>
       <h2>Upload PDF Documents</h2>
+      <h3>you can upload multiple pdf, max pages 1000</h3>
       <form onSubmit={handleSubmit}>
         <input type="file" multiple onChange={handleFileChange} />
         <button type="submit">Upload</button>

@@ -35,7 +35,7 @@ const DocumentQuery = () => {
   };
 
   return (
-    <div>
+    <div id="rag">
       <h2>Query Documents</h2>
       <form onSubmit={handleSubmit}>
         <input
