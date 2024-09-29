@@ -18,7 +18,7 @@ const DocumentQuery = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/query",
+        "https://vidya-ai.onrender.com/query",
         { query },
         {
           headers: {

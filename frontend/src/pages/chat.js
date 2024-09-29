@@ -29,11 +29,14 @@ const Chat = () => {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("http://127.0.0.1:5000/response", {
-        question: question,
-        context: context,
-        pdf: pdf,
-      });
+      const response = await axios.post(
+        "https://vidya-ai.onrender.com/response",
+        {
+          question: question,
+          context: context,
+          pdf: pdf,
+        }
+      );
 
       const ans = response.data.answer;
       const prerequisite = response.data.prerequisite;
