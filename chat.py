@@ -1,6 +1,5 @@
 import os
 from groq import Groq
-import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,15 +12,23 @@ client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
 )
 
-def get_answer(question,context,flag):
+
+def get_answer(question, context, flag):
     if flag == 0:
-        content=f"I have given you student background knowledge {context} use that background knowledge to answer the student question{question}"+"also provide the example"+"dont give introduction or greet user be specific and point-to-point"+"within 150 words"
+        content = f"I have given you student background knowledge {context} use that background knowledge to answer the student question{question}" + \
+            "also provide the example" + \
+            "dont give introduction or greet user be specific and point-to-point"+"within 150 words"
     elif flag == 1:
-        content=f"give me the list of prerequisites for the following question {question} and the output should be array of prerequisites"+'provide only array not other text'+"give me the 5 top prerequisites"+"strictly give only array"+"ex:['hello','hi']"
+        content = f"give me the list of prerequisites for the following question {question} and the output should be array of prerequisites" + \
+            'provide only array not other text'+"give me the 5 top prerequisites" + \
+            "strictly give only array"+"ex:['hello','hi']"
     elif flag == 2:
-        content=f"list the project which a student can do to understand that concept {question} and the difficulty of the project should be accroding to his/her previous knowledge{context}"+"give me the list of 5 projects"+"directly give me the list without any prior introduction"+"provide only array not other text"+"strictly give only array"+"ex:['hello','hi']"
+        content = f"list the project which a student can do to understand that concept {question} and the difficulty of the project should be accroding to his/her previous knowledge{context}" + \
+            "give me the list of 5 projects"+"directly give me the list without any prior introduction" + \
+            "provide only array not other text" + \
+            "strictly give only array"+"ex:['hello','hi']"
     elif flag == 3:
-        content=f"only give the topic name, not prepositions from the following {question}"
+        content = f"only give the topic name, not prepositions from the following {question}"
 
     chat_completion = client.chat.completions.create(
         messages=[
