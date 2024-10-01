@@ -27,7 +27,7 @@ const DocumentUpload = () => {
 
     try {
       const response = await axios.post(
-        "https://vidya-ai.onrender.com/upload",
+        "https://lazy-dev.onrender.com/upload",
         formData,
         {
           headers: {

@@ -18,7 +18,7 @@ const DocumentQuery = () => {
 
     try {
       const response = await axios.post(
-        "https://vidya-ai.onrender.com/query",
+        "https://lazy-dev.onrender.com/query",
         { query },
         {
           headers: {

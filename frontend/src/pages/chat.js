@@ -30,7 +30,7 @@ const Chat = () => {
     setError("");
     try {
       const response = await axios.post(
-        "https://vidya-ai.onrender.com/response",
+        "https://lazy-dev.onrender.com/response",
         {
           question: question,
           context: context,
